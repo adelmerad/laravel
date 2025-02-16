@@ -29,7 +29,7 @@ class CharacterController extends Controller
     public function store(Request $request)
     {
         $fields = $request->validate([
-            'name'=> 'required|string',
+            'name'=> 'required|string|unique:characters,name',
             'class'=> 'required|string',
             'level'=> 'integer|min:1',
             'game_id'=> 'required|exists:games,id'    

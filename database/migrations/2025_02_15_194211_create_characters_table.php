@@ -16,8 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('class');
             $table->integer('level')->default(1);
-            $table->foreignId('game_id')->constrained()->onDelete('cascade');
+            $table->foreignId('game_id')->constrained('games')->onDelete('cascade');
             $table->timestamps();
+            
+            $table->unique(['name','game_id']); // 
         });
     }
 
